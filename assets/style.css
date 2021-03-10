@@ -1,0 +1,42 @@
+body{
+	background-color: #fafafa;
+	color: green;
+}
+.video-thumb{
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.thumb-card{
+	min-height: 150px;
+}
+.video-title{
+	text-shadow: -1px 1px #00000054;
+	color: white;
+	background: #0000002e;
+}
+
+.btn-outline-danger{
+	background: #000000b3 !important;
+}
+
+.float{
+	z-index: 99999;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    top: 60px;
+    right: 20px;
+    background-color: #27123e85;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    font-size: 48px;
+    text-shadow: -2px -1px 1px #000000ed;
+	cursor: pointer;
+}
+
+.re-scrap{
+	margin-top:22px;
+}

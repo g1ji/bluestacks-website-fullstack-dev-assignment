@@ -1,0 +1,114 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Bluestacks Assignment for FullStack Web Developer by @G1ji</title>
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="https://www.linkedin.com/in/g1ji4u">
+			<img src="./../assets/img/g1ji.png" width="30px" alt="g1ji">
+		</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="nav bar-nav">
+				<li class="nav nav-item active">
+					<a class="nav-link" href="/">Top 60 Popular videos in india @ YouTube:
+						"https://www.youtube.com/feed/trending" <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+		<span id="re-scrap" class="float">
+			<i class="re-scrap"> &#8634;</i>
+		</span>
+		<div class="alert alert-success" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+					aria-hidden="true">&times;</span></button>
+			<strong>Wait!</strong> Page will be reloaded with latest Popular videos.
+		</div>
+	</nav>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<div class="card-columns">
+				<% trending.forEach((video)=>{ %>
+					<div class="card bg-light">
+						<div class="card-body text-center">
+							<div class="card-body text-center">
+								<div class="card-header">
+									<b>By: </b>
+									<%= video.author %>
+								</div>
+								<div class="card-body video-thumb"
+									style="background-image: url('<%= video.thumb && video.thumb.url %>');">
+									<p class="card-text video-title">
+										<%= video.title %>
+									</p>
+									<a href="/video/<%= video._id %>" class="btn btn-outline-danger">Know more</a>
+								</div>
+								<div class="card-footer text-muted">
+									<b>Run time:</b>
+									<%= video.timeText || '--:--' %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<% }); %>
+			</div>
+		</div>
+	</div>
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-cta pt-5 pb-5">
+				<div class="row">
+					<div class="col-xl-3 col-md-3 mb-30">
+						<img class="mr-3" height="60px" src="https://cdn-www.bluestacks.com/bs-images/bs-logo-new.png"
+							alt="Generic placeholder image">
+					</div>
+					<div class="col-xl-9	 col-md-9	 mb-30">
+						<div class="media-body">
+							<p class="lead">Assignment for FullStack Web Developer by @G1ji</p>
+							<p>Top 60 Popular videos in india @ YouTube: "https://www.youtube.com/feed/trending" </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap/dist/js/bootstrap.min.js">
+<script src="/assets/jquery/dist/jquery.min.js"></script>
+<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$(".alert").hide();
+		$('#re-scrap').click(() => {
+			$(".alert").show();
+			var settings = {
+				"url": "http://localhost:3000/scrape",
+				"method": "GET",
+				"timeout": 0,
+			};
+			window.setTimeout(function () {
+				$(".alert").fadeTo(500, 0).slideUp(500, function () {
+					$(this).remove();
+				});
+			}, 4000);
+			$.ajax(settings).done(function (response) {
+
+				location.reload();
+			});
+		});
+	})
+</script>
+
+</html>

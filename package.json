@@ -1,0 +1,32 @@
+{
+  "name": "bluestacks-website-fullstack-dev-assignment",
+  "version": "1.0.0",
+  "description": "Assignment for FullStack Web Developer",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g1ji/bluestacks-website-fullstack-dev-assignment.git"
+  },
+  "keywords": [
+    "bluestacks",
+    "bluestacks-website-fullstack-dev-assignment",
+    "website-fullstack-dev-assignment-solution"
+  ],
+  "author": "g1ji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g1ji/bluestacks-website-fullstack-dev-assignment/issues"
+  },
+  "homepage": "https://github.com/g1ji/bluestacks-website-fullstack-dev-assignment#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "yt-trending-scraper": "^1.1.0"
+  }
+}
