@@ -20,6 +20,7 @@ mongoose
 			return Trending
 				.aggregate([
 					{ $limit: 60 },
+					{ $sort: { published: -1 } },
 					{
 						$project: {
 							timeText: 1,
