@@ -35,6 +35,9 @@ mongoose
 				.then((trending) => {
 					res.render(path.join(__dirname, './views/index'), { trending: trending });
 				})
+				.catch((error) => {
+					res.status(500).send({ success: false, error: error.message });
+				});
 		});
 
 		app.get('/video/:videoId', function (req, res) {
@@ -46,6 +49,9 @@ mongoose
 				.then((video) => {
 					res.render(path.join(__dirname, './views/details'), { video: video });
 				})
+				.catch((error) => {
+					res.status(500).send({ success: false, error: error.message });
+				});
 		});
 
 		app.get('/scrape', function (req, res) {
